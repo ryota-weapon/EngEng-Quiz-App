@@ -1,38 +1,354 @@
-.App {
+/* body > App > heder + pageContainer + footer */
+
+
+body{
+  /* height: 100%; */
+  height: 1200px;
+  /* min-width: 60%; 上手く使えない*/
+
+  margin: auto;
+  
+  color:rgb(255, 240, 72);
+  text-align: center;
+  font-family:'Times New Roman', Times, serif;
+}
+
+#boxForBg{
+  height: 80%;
+  background-image: url("../public/space1.jpg");
+  background-size: cover;  
+  background-repeat: no-repeat;
+}
+/* 一番上にあった階層構造が乱れた */
+/* つまり、boxForBg>header+contentなので、この二つで二分するように割合を変更する */
+/* 60,20 => 60*10/8, 20*(10/8)として、75, 25に変更すれば良い */
+
+
+/* pageContentの下にfooterが来るようにしたい */
+/* 画像のサイズが、横がピッタリになるように拡大されているはず */
+/* それを基にたてのサイズを割り出せば、Appをどの高さに指定すればよいか分かるはず */
+.App{
+  /* height: 100%; */
+  height: 1200px;
+  /* border:rgb(255, 17, 0) 4px solid; */
+}
+
+#header{
+  /* border:rgb(0, 179, 255) 2px solid; */
+  
+  /* height: 20%; */
+  height: 25%;   /* boxForSizeにより変更 */
+}
+
+.contentContainer{
+  /* height: 60%; */
+  height: 75%; /*boxFOrSizeにより変更  */
+  width: 60%;
+  margin: auto;
+  /* padding-top: 2%; */
+  /* height: 70%; */
+  /* padding-top: 5%;; */
+  /* border:rgb(76, 255, 53) 2px solid; */
+}
+
+.contentContainer p{
+  margin-top: 0;   
+  /*pのmarginのせいでcontentContainer全体の配置が下がっていた */
+}
+
+.NavigationBar{
+  display: flex;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0);  
+}
+
+
+
+
+ /* #region NavigationItem */
+
+.navItem{
+  color: rgba(255, 255, 255, 0.517);
+  margin-left: 100px;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.navItem:hover{
+  color: rgba(248, 245, 245, 0.904);
+}
+
+/* この書き方ダサいから変えたい */
+.activeNavItem{
+  margin-left: 100px;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: rgba(248, 245, 245, 0.904);
+}
+
+
+.signOut{
+  padding-right: 20px;
+  margin-left: auto;  /*　親をflexにした要素が右寄せになるらしい*/
+  display: flex;
+}
+
+.userIcon{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+/* #endregion   */
+
+
+/* #region Mode */
+.mode{
+  width: 50%;
+  margin: auto;
+  background-color: rgb(2, 17, 10);
+  color:rgb(255, 255, 255);
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.modeContainer{
+  width: 30%;
+  max-height: 250px;
+  /* height: 40%; */
+  justify-content: center;
+  margin: 10px;
+  padding: 4%;
+  border-radius: 12%;
+
+  background-color: rgba(248, 248, 248, 0.85);
+}
+
+/* .boxForMode{
+  height: 200px;
+} */
+
+.modeContainer:hover{
+  background-color: rgba(248, 248, 248, 0.911);
+  transform: translate(0, 2px);
+}
+
+.modeLink{
+  color: rgb(0, 179, 255);
+  text-decoration: none;
+}
+
+#modesContainer{
+  margin-top: 10%;
+  /* height: 70%; */
+  display: flex;
+  flex-direction: row;
+}
+
+/* #endregion */
+
+/* #region category */
+.categoryContainer{
+  color: black;
+  background-color: #fff;
+  height: 40%;
+  min-height: 180px;
+  max-height: 200px;
+  width: 27%;
+  padding: 2%;
+  margin-left: 2%;
+  margin-bottom: 4%;
+  
+  border-radius: 5%;
+
+  box-shadow: 5px 5px 5px rgb(133, 133, 133);
+}
+
+.categoryContainer:hover{
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+#categoriesContainer{
+  height: 75%;
+  padding: 2%;
+  margin: 0 2%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  overflow-y: scroll;
+
+  border: bisque 1px solid;
+}
+
+.categoryLink{
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.boxForSize{
+  height: 80%;
+  /* height: 150px; */
+}
+
+/* #endregion  */
+
+
+
+.SignIn{
+  padding: 100px;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.myButton{
+  background-color: rgba(235, 235, 235, 0.394);
+  color: rgb(40, 186, 186);
+  font-weight: bold;
+  
+  height: 20%;
+  width: 50%;
+  margin: .5% auto;
+  border-radius: 10px;
+}
+
+.myButton:hover{
+  background-color: rgba(255, 255, 255, 0.836);
+}
+
+.backToList{
+  color: white;
+  /* background-color:rgba(255, 255, 255, 0.192); */
+  text-decoration: none;
+
+  /* transition-duration: 10s;
+  transition-property: */
+}
+
+.backToList:hover{
+  text-decoration: underline;
+}
+
+/* #region chapter */
+#chaptersContainer{
+  display: flex;
+  color: black;
+  flex-wrap: wrap;
+  height: 50%;
+}
+
+.chapterLink{
+  background-color: white; 
+  width: 16%;
+  padding-top: 16%;
+  position: relative;
+  margin: 3% auto;
+
+  border-radius: 50%;
+  border:rgb(0, 0, 0) 2px solid;
+
+  text-decoration: none;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.chapterLink:hover{
+  background-color: rgb(189, 189, 252);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.boxForChapter{
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;  
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.boxForChapter p{
+  padding-top: 50%;
+  margin: 0;
+  line-height: 0;
+}
+
+
+/* #endregion */
+
+
+/* #region quizArea */
+.quizArea{
+  height: 80%;
+  background-color: rgba(14, 14, 14, 0.523);
+  /* color: rgba(251, 247, 127, 0.823); */
+  padding: 2%;
+}
+
+#problemIndex{
+  text-align: right;
+}
+
+.meaningArea{
+  font-family: teko;
+  font-weight: bold;
+  font-size: 30px;
+  text-align: left;
+  transform: rotateX(30deg);
+  /* transform: scaleY(1); */
+}
+
+.exampleArea{
+  font-family: teko;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: left;
+  transform: rotateX(30deg);
+}
+
+
+/* endregion */
+
+#AnswerArea{
+  text-align: center;
+  background-color: #fff;
+  color:rgb(0, 0, 0);
+}
+
+#answersList{
+  text-align: left;
+}
+
+.toNextLink{
+  background: rgb(236, 235, 235); 
+  color: rgb(28, 29, 29);
+  font-weight: bold;
+  font-size: large;
+}
+
+/* #region footer */
+#footer{
+  height: 20%;
+  /* padding: 50px; */
+  color: black;
+  background-color: rgba(220, 220, 220, 0.3);
+
+  /* border: green 3px solid; */
+}
+
+#footer p{
+  margin-top: 0;
+}
+
+
+.iconsContainer{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: auto;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.iconContainer{
+  margin-left: 1%;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* #endregion */
